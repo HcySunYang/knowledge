@@ -22,6 +22,7 @@
 ###### [计算机是怎样跑起来的](/note/computer-running)
 
 #### Git
+###### [config配置项](/note/git/config)
 ###### [Git版本控制管理](/note/git)
 
 #### 网络

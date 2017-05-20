@@ -5,6 +5,10 @@
 ## Intro
 > 该项目收藏积累了前端(Not just)所应该掌握的知识，包括 JavaScript语言基础、DOM、CSS3、计算机原理、网络、性能、规范以及数学。
 
+动图展示部分内容，该文档持续更新。
+
+![](./docs/asset/intro.gif)
+
 ## Contribution
 
 clone 项目：

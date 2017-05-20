@@ -40,5 +40,5 @@
 
 #### 页面渲染
 
-
+请查看 [浏览器渲染页面的过程](/note/performance/render-page)
 

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0" />
+    <title>docs</title>
+    <link rel="stylesheet" href="./asset/docute.css">
+    <style>
+        .markdown-body h5 {
+            font-size: .85em;
+            color: #C43C3C;
+        }
+        .markdown-body h6 {
+            font-size: .85em;
+            color: #ff9917;
+        }
+    </style>
+</head>
+<body>
+    <div id="app"></div>
+
+    <script src="./asset/docute.js"></script>
+    <script>
+    docute.init({
+        nav: [
+            {title: 'Home', path: '/'},
+            {title: '语言基础', type: 'dropdown', items: [
+                {title: '函数', path: '/note/basis/func'},
+                {title: '数组', path: '/note/basis/array'},
+                {title: '字符串', path: '/note/basis/string'},
+                {title: 'cookie和storage', path: '/note/basis/cookie-storage'}
+            ]},
+            {title: 'DOM', type: 'dropdown', items: [
+                {title: 'DOM操作', path: '/note/dom/dom'},
+                {title: 'DOM事件', path: '/note/dom/dom-event'},
+            ]},
+            {title: 'CSS3', type: 'dropdown', items: [
+                {title: 'transform', path: '/note/css3/transform'},
+                {title: 'BFC', path: '/note/css3/bfc'}
+            ]},
+            {title: '计算机原理', type: 'dropdown', items: [
+                {title: '计算机是怎样跑起来的', path: '/note/'}
+            ]},
+            {title: 'Git', type: 'dropdown', items: [
+                {title: 'Git版本控制管理', path: '/note/'}
+            ]},
+            {title: '网络', type: 'dropdown', items: [
+                {title: 'get和post请求的区别', path: '/note/http/get-post'},
+                {title: '从输入URL到页面加载完成的过程中都发生了什么事情？', path: '/note/http/url-render'},
+                {title: 'HTTP权威指南', path: '/note/'}
+            ]},
+            {title: '数学', type: 'dropdown', items: [
+                {title: '向量/矩阵', path: '/note/math/matrix'}
+            ]},
+            {title: '其他', type: 'dropdown', items: [
+                {title: '性能', path: '/note/performance/performance'},
+                {title: '兼容性', path: '/note/compatibility/compatibility'},
+                {title: 'js编码规范 .eslitrc.js', path: '/note/specification/eslintrc'}
+            ]}
+        ],
+        icons: [{
+            icon: 'link',
+            label: 'my blog',
+            link: 'http://hcysun.me'
+        }],
+        tocVisibleDepth: 6
+    })
+    </script>
+</body>
+</html>

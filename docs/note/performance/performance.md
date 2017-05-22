@@ -22,3 +22,26 @@
 改变元素多种样式的时候，最好用className，一次性完成操作，这样只会修改一次DOM。
 
 [重排和重绘的概念及触发条件查看这里](/note/performance/reflow-repaint)
+
+## FOUC (无样式内容闪烁)
+
+该问题主要出现在 IE 浏览器，原因有两个：
+
+* 1、使用@import方法导入CSS
+
+```html
+<style>
+    @import "../reset.css";
+</style>
+```
+
+`IE` 加载HTML文档后，会先解析文档，然后再去加载由 `import` 导入的外部CSS文件，在CSS没有被加载的这段时间内，页面是无样式的。
+
+* 2、零散的添加样式引用
+
+将样式表链接放在页面不同位置时，在IE5/6下某些页面会无样式显示内容且瞬间闪烁，这现象就是文档样式短暂失效（Flash Of Unstyled Content），即FOUC。
+
+解决方案：
+
+* 避免使用 `@import` 引入外部样式
+* 将样式表引入放在 `<head>` 标签内

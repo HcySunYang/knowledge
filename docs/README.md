@@ -35,10 +35,13 @@
 #### 数学
 ###### [向量/矩阵](/note/math/matrix)
 
-#### 其他
-###### [性能](/note/performance/performance)
+#### 性能与兼容性
+###### [基础性能知识](/note/performance/performance)
 ###### [浏览器渲染页面的过程](/note/performance/render-page)
 ###### [重排和重绘的概念及触发条件查看这里](/note/performance/reflow-repaint)
 ###### [兼容性](/note/compatibility/compatibility)
+
+#### 规范与概念
 ###### [js编码规范 .eslitrc.js](/note/specification/eslintrc)
 ###### [无障碍访问与ARIA](/note/specification/aria)
+###### [文档模式](/note/specification/dtd)

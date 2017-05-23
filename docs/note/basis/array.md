@@ -205,7 +205,7 @@ if(Object.prototype.toString.call(obj) === '[object Array]'){
 * 参数：
     ```
     第一个参数：要查找的值
-    第二个参数：查找的起始位置，默认是0，负数表示倒数，查出范围会重置为0
+    第二个参数：查找的起始位置，默认是0，负数表示倒数，超出范围会重置为0
     ```
 * 返回值：`true` 包含， `false` 不包含
 <p class="tip">includes 相比于 indexOf 的优势有两点：1、更加语义化，不需要判断返回值是否为 -1。2、由于 indexOf 底层在判断是否相等时使用的是全等操作符 ===，这会导致使用 indexOf 查找 NaN 时查不到，而 includes 则不存在这样的问题</p>

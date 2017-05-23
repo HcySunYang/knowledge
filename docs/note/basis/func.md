@@ -38,7 +38,7 @@ var fnName = () => {
 * 类型：类数组对象，包含着传入函数的所有参数，和length属性
 * 属性：
     * anguments.length	// 实际传入函数参数的个数
-    * anguments.callee【严格模式报错】	// 指向拥有这个anguments对象的函数，即函数本省
+    * anguments.callee【严格模式报错】	// 指向拥有这个anguments对象的函数，即函数本身
 
 #### this
 

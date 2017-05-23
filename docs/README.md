@@ -23,6 +23,7 @@
 
 #### Git
 ###### [config配置项](/note/git/config)
+###### [git常用命令及技巧](/note/git/commonly-used)
 ###### [Git版本控制管理](/note/git)
 
 #### 网络

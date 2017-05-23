@@ -1,6 +1,6 @@
 ## 一、创建函数
 
-#### 函数声明（拥有函数声明提升）
+#### 函数声明
 
 ```js
 function fnName(){
@@ -8,7 +8,7 @@ function fnName(){
 }
 ```
 
-#### 函数表达式（没有函数声明提升）
+#### 函数表达式
 
 ```js
 var fnName = function(){

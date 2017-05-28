@@ -25,36 +25,38 @@
     docute.init({
         nav: [
             {title: 'Home', path: '/'},
-            {title: '语言基础', type: 'dropdown', items: [
+            {title: '基础知识', type: 'dropdown', items: [
+                {type: 'label', title: '语言基础'},
                 {title: '函数', path: '/note/basis/func'},
                 {title: '数组', path: '/note/basis/array'},
                 {title: '字符串', path: '/note/basis/string'},
-                {title: 'cookie和storage', path: '/note/basis/cookie-storage'}
-            ]},
-            {title: 'DOM', type: 'dropdown', items: [
+                {title: 'cookie和storage', path: '/note/basis/cookie-storage'},
+
+                {type: 'label', title: 'DOM'},
                 {title: 'DOM操作', path: '/note/dom/dom'},
                 {title: 'DOM事件', path: '/note/dom/dom-event'},
+
+                {type: 'label', title: '计算机基础'},
+                {title: '计算机是怎样跑起来的', path: '/note/'}
             ]},
             {title: 'CSS3', type: 'dropdown', items: [
                 {title: 'transform', path: '/note/css3/transform'},
                 {title: 'BFC', path: '/note/css3/bfc'}
-            ]},
-            {title: '计算机原理', type: 'dropdown', items: [
-                {title: '计算机是怎样跑起来的', path: '/note/'}
             ]},
             {title: 'Git', type: 'dropdown', items: [
                 {title: 'git常用命令及技巧', path: '/note/git/commonly-used'},
                 {title: 'config配置项', path: '/note/git/config'},
                 {title: 'Git版本控制管理', path: '/note/'}
             ]},
-            {title: '网络', type: 'dropdown', items: [
+            {title: '网络与安全', type: 'dropdown', items: [
+                {type: 'label', title: '网络'},
                 {title: 'get和post请求的区别', path: '/note/http/get-post'},
                 {title: '从输入URL到页面加载完成的过程中都发生了什么事情？', path: '/note/http/url-render'},
                 {title: 'ajax及其优缺点', path: '/note/http/ajax'},
                 {title: '跨域及跨域的方案', path: '/note/http/cross-domain'},
-                {title: 'HTTP权威指南', path: '/note/'}
-            ]},
-            {title: '安全', type: 'dropdown', items: [
+                {title: 'HTTP权威指南', path: '/note/'},
+
+                {type: 'label', title: '安全'},
                 {title: 'CSP(内容安全策略)', path: '/note/security/csp'}
             ]},
             {title: '性能与兼容性', type: 'dropdown', items: [
@@ -70,6 +72,11 @@
                 {title: 'js编码规范 .eslitrc.js', path: '/note/specification/eslintrc'},
                 {title: '无障碍访问与ARIA', path: '/note/specification/aria'},
                 {title: '文档模式', path: '/note/specification/dtd'}
+            ]},
+            {title: '数据结构与算法', type: 'dropdown', items: [
+                {type: 'label', title: '数据结构'},
+                {title: '栈', path: '/note/algorithm/stack'},
+                {type: 'label', title: '算法'},
             ]}
         ],
         icons: [{

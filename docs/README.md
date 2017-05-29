@@ -56,5 +56,6 @@
 #### 数据结构与算法
 ##### 数据结构
 ###### [栈](/note/algorithm/stack)
+###### [队列](/note/algorithm/queue)
 
 ##### 算法

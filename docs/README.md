@@ -57,5 +57,6 @@
 ##### 数据结构
 ###### [栈](/note/algorithm/stack)
 ###### [队列](/note/algorithm/queue)
+###### [链表](/note/algorithm/linked-list)
 
 ##### 算法

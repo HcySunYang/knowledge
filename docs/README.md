@@ -55,6 +55,7 @@
 
 #### 数据结构与算法
 ##### 数据结构
+###### [数据结构以及相关术语的概念](/note/algorithm/data-structure)
 ###### [栈](/note/algorithm/stack)
 ###### [队列](/note/algorithm/queue)
 ###### [链表](/note/algorithm/linked-list)

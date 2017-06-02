@@ -34,7 +34,7 @@
 ###### [从输入URL到页面加载完成的过程中都发生了什么事情？](/note/http/url-render)
 ###### [ajax及其优缺点](/note/http/ajax)
 ###### [跨域及跨域的方案](/note/http/cross-domain)
-###### [HTTP权威指南](/note/http)
+###### [强缓存与协商缓存](/note/http/cache)
 
 ##### 安全
 ###### [CSP(内容安全策略)](/note/security/csp)

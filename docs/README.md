@@ -11,6 +11,7 @@
 ###### [数组](/note/basis/array)
 ###### [字符串](/note/basis/string)
 ###### [cookie和storage](/note/basis/cookie-storage)
+###### [async](/note/basis/async)
 
 ##### DOM
 ###### [DOM操作](/note/dom/dom)

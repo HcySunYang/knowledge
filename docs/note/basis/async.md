@@ -1,4 +1,4 @@
-## 异步处理（待续......）
+## 异步处理
 
 #### 案例简介
 
@@ -37,7 +37,7 @@ getData('/page/1?param=123', (res1) => {
 })
 ```
 
-通过上面的代码可以看出，第一次请求的 `url` 地址为：`/page/1?param=123`，请求结果为 `res1`。
+通过上面的代码可以看出，第一次请求的 `url` 地址为：`/page/1?param=123`，返回结果为 `res1`。
 
 第二个请求的 `url` 地址为：`/page/2?param=${res1.data}`，依赖第一次请求的 `res1.data`，返回结果为 `res2`。
 
@@ -117,4 +117,81 @@ async function getData () {
 }
 ```
 
-对比 `Promise` 感觉怎么样？是不是非常清晰，但是 `async/await` 是基于 `Promise` 的，因为使用 `async` 修饰的方法最终返回一个 `Promise`
+对比 `Promise` 感觉怎么样？是不是非常清晰，但是 `async/await` 是基于 `Promise` 的，因为使用 `async` 修饰的方法最终返回一个 `Promise`，
+实际上，`async/await` 可以看做是使用 `Generator` 函数处理异步的语法糖，我们来看看如何使用 `Generator` 函数处理异步。
+
+###### Generator
+
+首先异步函数依然是：
+
+```js
+function getDataAsync (url) {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            var res = {
+                url: url,
+                data: Math.random()
+            }
+            resolve(res)
+        }, 1000)
+    })
+}
+```
+
+使用 `Generator` 函数可以这样写：
+
+```js
+function * getData () {
+    var res1 = yield getDataAsync('/page/1?param=123')
+    console.log(res1)
+    var res2 = yield getDataAsync(`/page/2?param=${res1.data}`)
+    console.log(res2)
+    var res3 = yield getDataAsync(`/page/2?param=${res2.data}`)
+    console.log(res3))
+}
+```
+
+然后我们这样逐步执行：
+
+```js
+var g = getData()
+g.next().value.then(res1 => {
+    g.next(res1).value.then(res2 => {
+        g.next(res2).value.then(() => {
+            g.next()
+        })
+    })
+})
+```
+
+上面的代码，我们逐步调用遍历器的 `next()` 方法，由于每一个 `next()` 方法返回值的 `value` 属性为一个 `Promise` 对象，所以我们为其添加 `then` 方法，
+在 `then` 方法里面接着运行 `next` 方法挪移遍历器指针，直到 `Generator` 函数运行完成，实际上，这个过程我们不必手动完成，可以封装成一个简单的执行器：
+
+```js
+function run (gen) {
+    var g = gen()
+
+    function next (data) {
+        var res = g.next(data)
+        if (res.done) return res.value
+        res.value.then((data) => {
+            next(data)
+        })
+    }
+
+    next()
+    
+}
+```
+
+`run` 方法用来自动运行异步的 `Generator` 函数，其实就是一个递归的过程调用的过程。这样我们就不必手动执行 `Generator` 函数了。
+有了 `run` 方法，我们只需要这样运行 `getData` 方法：
+
+```js
+run(getData)
+```
+
+这样，我们就可以把异步操作封装到 `Generator` 函数内部，使用 `run` 方法作为 `Generator` 函数的自执行器，来处理异步。其实我们不难发现，
+`async/await` 方法相比于 `Generator` 处理异步的方式，有很多相似的地方，只不过 `async/await` 在语义化方面更加明显，同时 `async/await`
+不需要我们手写执行器，其内部已经帮我们封装好了，这就是为什么说 `async/await` 是 `Generator` 函数处理异步的语法糖了。
+

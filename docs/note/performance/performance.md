@@ -1,8 +1,6 @@
 ## 尽量少用 innerHTML
 * 原因：因为 innerHTML 会调用一个沉重且高消耗的HTML解析器。
 
-## 缓存ajax请求
-
 ## 缓存DOM操作
 * `NodeList` 或 `HTMLCollection` 由于这两个集合的实时性原因，每次访问此集合都会重新查询文档。这将导致性能问题，应该做缓存处理
 

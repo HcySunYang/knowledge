@@ -11,7 +11,7 @@
 ###### [数组](/note/basis/array)
 ###### [字符串](/note/basis/string)
 ###### [cookie和storage](/note/basis/cookie-storage)
-###### [async](/note/basis/async)
+###### [异步处理](/note/basis/async)
 
 ##### DOM
 ###### [DOM操作](/note/dom/dom)
@@ -44,6 +44,7 @@
 ###### [基础性能知识](/note/performance/performance)
 ###### [浏览器渲染页面的过程](/note/performance/render-page)
 ###### [重排和重绘的概念及触发条件查看这里](/note/performance/reflow-repaint)
+###### [数据直出与服务端渲染的首屏优化](/note/performance/ssr)
 ###### [兼容性](/note/compatibility/compatibility)
 
 #### 数学

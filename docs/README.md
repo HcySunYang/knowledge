@@ -41,6 +41,7 @@
 ###### [CSP(内容安全策略)](/note/security/csp)
 
 #### 性能与兼容性
+###### [H5 性能优化整理](/note/performance/h5-perf)
 ###### [基础性能知识](/note/performance/performance)
 ###### [浏览器渲染页面的过程](/note/performance/render-page)
 ###### [重排和重绘的概念及触发条件查看这里](/note/performance/reflow-repaint)

@@ -63,6 +63,7 @@
 ###### [队列](/note/algorithm/queue)
 ###### [链表](/note/algorithm/linked-list)
 ###### [二叉树和二叉查找树](/note/algorithm/bst)
+###### [图](/note/algorithm/graph)
 
 ##### 算法
 ###### [算法的时间复杂度和空间复杂度](/note/algorithm/time-space)

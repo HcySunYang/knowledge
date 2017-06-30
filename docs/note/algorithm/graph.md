@@ -46,7 +46,7 @@
 
 如果 `有向图` 的所有顶点都是强连通的，那么这个 `有向图也是强连通` 的。
 
-#### 代码实现
+#### 分析
 
 ##### 如何存储(表示)图？
 
@@ -97,3 +97,135 @@ let adj = [
 
 如上面的代码顶点 `A` 在 `vertex` 中的索引为 `0`，我们通过访问 `adj[0]` 可以得到数组 `['B', 'D']`，说明顶点 `A` 与顶点 `B` 和 `D` 相连。
 
+###### 代码实现
+
+实现图的过程，实际上就是构造顶点数组 `vertex` 以及 邻接表数组 `adj` 的过程。
+
+首先顶点可能由很多复杂的数据构成，比如地图中的城市拥有名称、经纬度等等，所以我们需要一个顶点类，类似于二叉树中的节点类，如下：
+
+```js
+// 顶点类
+function Vert (data, visited) {
+    // 顶点的数据
+    this.data = data
+    // 标示着顶点是否被访问过
+    this.visited = visited
+}
+```
+
+有了顶点类，我们就可以构造顶点数组了，为了方便，我们顶点中只保存整型数据：
+
+```js
+let vertex = [
+    new Vert(0),
+    new Vert(1),
+    new Vert(2),
+    new Vert(3),
+    new Vert(4)
+]
+```
+
+下一步就是构造邻接表数组，这个邻接表数组实际上就是图的描述，我们需要一个 `Graph` 类：
+
+```js
+// 图类，构造邻接表数组 adj，传递顶点数组 vertex 进行初始化
+function Graph (vertex) {
+    this.vertex = vertex
+    // 顶点数量
+    this.quantity = vertex.length
+    // 边的数量
+    this.edges = 0
+    // 邻接表数组
+    this.adj = []
+    for (let i = 0; i < this.quantity; i++) {
+        this.adj[i] = []
+    }
+}
+```
+
+如上代码，`Graph` 类通过传递给它的顶点数组构造一个图，在初始状态，图中的顶点之间没有任何关系，所以边的数量为 0，邻接表数组被初始化为与顶点相对应的空数组。
+
+接下来，我们的 `Graph` 类需要一个方法 `addEdge`：
+
+```js
+Graph.prototype.addEdge = function (v1, v2) {
+
+}
+```
+
+`addEdge` 方法接收两个顶点数据作为参数，并根据数据确定对应顶点，然后将数据值为 `data2` 的顶点 `v2` 添加到数据值为 `data1` 的顶点 `v1` 对应的邻接表数组中，即 `v2` 与 `v1` 相连，实现如下：
+
+```js
+Graph.prototype.addEdge = function (data1, data2) {
+    // 查找顶点 v1 在顶点数组的位置
+    var v1Index = this.searchPos(data1)
+    // 查找顶点 v2 在顶点数组的位置
+    var v2Index = this.searchPos(data2)
+    
+    this.adj[v1Index].push(v2Index)
+    this.adj[v2Index].push(v1Index)
+    this.edges++
+}
+```
+
+上面的代码中我们使用了 `searchPos` 方法，该方法查找拥有指定数据的顶点在顶点数组中的位置，实现如下：
+
+```js
+Graph.prototype.searchPos = function (data) {
+    var index = -1
+    for (var i = 0; i < this.quantity; i++) {
+        if (this.vertex[i].data == data) {
+            index = i
+            break
+        }
+    }
+    return index
+}
+```
+
+为了方便查看，我们需要一个 `showGraph` 方法，用来查看图：
+
+```js
+Graph.prototype.showGraph = function () {
+    var putStr = ''
+    for (var i = 0; i < this.quantity; i++) {
+        putStr = ''
+        putStr += i + ' -> '
+        for (var j = 0; j < this.quantity; j++) {
+            if (this.adj[i][j] !== undefined) {
+                putStr += ' ' + this.adj[i][j] + ' '
+            }
+        }
+        console.log(putStr)
+    }
+}
+```
+
+`showGraph` 方法只是简单的对邻接表数组进行遍历输出。
+
+现在，我们可以写一些测试代码：
+
+```js
+// 顶点数组
+var vertex = [
+    new Vert(0),
+    new Vert(1),
+    new Vert(2),
+    new Vert(3),
+    new Vert(4)
+]
+
+var g = new Graph(vertex)
+g.addEdge(0, 1)
+g.addEdge(0, 2)
+g.addEdge(1, 3)
+g.addEdge(2, 4)
+
+g.showGraph()
+```
+
+打开浏览器控制台，应该看到如下输出：
+
+<img src="../../asset/img/linjiebiao.png" width="500" />
+
+##### 图的搜索（待续...）

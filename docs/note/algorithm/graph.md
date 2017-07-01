@@ -228,4 +228,78 @@ g.showGraph()
 
 <img src="../../asset/img/linjiebiao.png" width="500" />
 
-##### 图的搜索（待续...）
+##### 图的搜索
+
+经常用图来解决的问题比如：从一个城市到另外一个城市的最短距离，这个问题实际上可以抽象出从图中的一个顶点到达另外一个顶点的最短路径的问题。图的这一操作叫做搜索，对图有两种基本搜索方式：`深度优先搜索`、`广度优先搜索`。
+
+###### 深度优先搜索
+
+深度优先搜索的思路是，从一条路径的顶点开始，直到到达最后一个顶点，然后回溯，继续追溯下一条路径。
+
+具体到我们的存储结构：`顶点数组` 和 `邻接表数组`，我们找到起始顶点在 `顶点数组` 中的位置，然后找到相应位置 `邻接表数组` 中存储的相邻顶点，做递归搜索即可，代码如下：
+
+```js
+Graph.prototype.dfs = function (data) {
+    // 找到起始顶点在邻接表数组中的位置
+    var index = this.searchPos(data)
+    // 将其设置为已访问
+    this.vertex[index].visited = true
+    console.log(this.vertex[index].data)
+
+    // 遍历邻接表数组中存储的相邻顶点，递归搜索
+    for (var i = 0; i < this.adj[index].length; i++) {
+        var key = this.adj[index][i]
+        if (!this.vertex[key].visited) {
+            this.dfs(this.vertex[key].data)
+        }
+    }
+}
+```
+
+针对上面的例子写如下测试代码：
+
+```js
+g.dfs(0)
+```
+
+输出如下：
+
+<img src="../../asset/img/dfs.png" width="500" />
+
+###### 广度优先搜索
+
+深度优先搜索是纵向延伸的搜索，而广度优先搜索是横向延伸的搜索。递归可以解决深度优先所搜，而广度优先搜索需要使用一个队列，来操作，具体代码并不复杂，如下：
+
+```js
+Graph.prototype.bfs = function (data) {
+    // 一个队列
+    var queue = []
+    // 找到起始顶点在邻接表数组中的位置
+    var index = this.searchPos(data)
+    // 将起始顶点入队
+    queue.push(index)
+
+    // 遍历队列的过程就是在横向搜索
+    while (queue.length > 0) {
+        var i = queue.shift()
+        this.vertex[i].visited = true
+        console.log(this.vertex[i].data)
+
+        for (var j = 0; j < this.adj[i].length; j++) {
+            if (!this.vertex[this.adj[i][j]].visited) {
+                queue.push(this.adj[i][j])
+            }
+        }
+    }
+}
+```
+
+还是针对前面的例子，写如下测试代码：
+
+```js
+g.bfs(0)
+```
+
+输出如下：
+
+<img src="../../asset/img/bfs.png" width="500" />

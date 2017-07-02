@@ -10,6 +10,7 @@
 ###### [函数](/note/basis/func)
 ###### [数组](/note/basis/array)
 ###### [字符串](/note/basis/string)
+###### [cookie详谈](/note/basis/cookie)
 ###### [cookie和storage](/note/basis/cookie-storage)
 ###### [异步处理](/note/basis/async)
 

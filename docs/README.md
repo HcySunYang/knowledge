@@ -68,3 +68,6 @@
 
 ##### 算法
 ###### [算法的时间复杂度和空间复杂度](/note/algorithm/time-space)
+##### 排序算法
+###### [冒泡排序](/note/algorithm/bubble-sort)
+##### 检索算法

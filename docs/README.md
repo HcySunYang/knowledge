@@ -22,6 +22,7 @@
 ###### [计算机是怎样跑起来的](/note/computer-running)
 
 #### CSS3
+###### [CSS选择器整理](/note/css3/selector)
 ###### [transform](/note/css3/transform)
 ###### [BFC](/note/css3/bfc)
 

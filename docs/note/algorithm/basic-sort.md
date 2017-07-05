@@ -117,3 +117,41 @@ function selectionSort (arr) {
     }
 }
 ```
+
+#### 插入排序
+
+##### 算法简介
+
+插入排序也属于基本排序算法。
+
+<p class="tip">算法的时间复杂度为 O(n²)</p>
+
+##### 算法描述
+
+插入排序的思路是构建有序序列，取出数组的第一个元素，认为其实有序的，然后再取出数组的第二个元素与有序序列中的元素进行比较，然后插入合适的位置，知道数组中的所有元素都被 `取出-比较-插入-完成`。
+
+一图胜千言（图片来自：[https://github.com/damonare/Sorts](https://github.com/damonare/Sorts))：
+
+<img src="../../asset/img/insertion-sort.gif"/>
+
+##### 代码实现
+
+以升序为例：
+
+```js
+function insertionSort (arr) {
+    // 从数组第二项开始遍历，即默认第一项为有序的
+    for (var i = 1; i < arr.length; i++) {
+        // j代表数有序序列的最后一项
+        var j = i - 1
+        var temp = arr[i]
+        // 从有序序列最后一项向前扫描，与 temp 对比，如果比temp大，则后移一位
+        while (j >= 0 && arr[j] > temp) {
+            arr[j + 1] = arr[j]
+            j--
+        }
+        // 退出循环后，arr[j]的元素是小于等于temp的，所以将temp插入到 j+1 的位置
+        arr[j + 1] = temp
+    }
+}
+```

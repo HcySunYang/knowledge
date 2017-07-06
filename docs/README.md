@@ -71,4 +71,5 @@
 ###### [算法的时间复杂度和空间复杂度](/note/algorithm/time-space)
 ##### 排序算法
 ###### [基本排序算法](/note/algorithm/basic-sort)
+###### [高级排序算法](/note/algorithm/advance-sort)
 ##### 检索算法

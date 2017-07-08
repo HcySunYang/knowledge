@@ -126,7 +126,25 @@ function (a = 2, b = 3){
     因为尾调用优化的本质是，只保留内层函数的调用帧，ES6的尾调用只在严格模式下生效，那么在非严格模式下是否可以进行尾调用优化呢？但是可以的，有两种方案，一种是使用蹦床函数，一种是真正的尾调用，阮一峰的教程里有讲
 ```
 
+#### new.target【ES6】
 
+`new` 操作符用来调用函数或ES6的类，从而创建一个实例，ES6为new操作符添加一个属性即：`new.target`，它保存着 `new` 操作符所作用的那个函数或类，一般用在构造函数里，如果使用函数或类时没有使用 `new` 操作符，那么 `new.target` 的值为 `undefined`。
+
+利用 `new.target` 就可以写出不能单独被实例化，必须要继承后才能使用的类：
+
+```js
+class Super {
+    if (new.target === Super) {
+        throw new Error('不能单独实例化')
+    }
+}
+class Sub extends Super {
+
+}
+
+new Super() // 报错
+new Sub()   // 正常使用
+```
 
 
 

@@ -67,4 +67,69 @@ function shellSort (arr) {
 }
 ```
 
-#### 归并排序（待续...）
+#### 归并排序
+
+##### 算法简介
+
+归并排序的实现方式有两种，一种是自顶向下，另一种是子底向上。
+
+归并排序是分治法的典型应用，他的名字来自与其排序的方式。
+
+<p class="tip">算法的平均时间复杂度为 O(nlog n)，空间复杂度为 O(n)</p>
+
+##### 算法描述
+
+###### 自顶向下
+
+首先将长度为 `n` 的数组分成两个长度为 `n/2` 的子数组，然后将两个子数组递归的执行一分为二的操作，直到每个子数组中至多包含一个元素为止。由于这是一个递归的过程，当程序回溯的时候，将两个子数组进行排序合并，直到回溯完毕，此时排序完成，如下图：
+
+<img src="../../asset/img/zdxx.png" width="500"/>
+
+上图描述了一个数组被递归拆分的过程，除此之外，在程序回溯的时候，一次保证数组有序，如下图：
+
+<img src="../../asset/img/hsyx.png" width="500"/>
+
+###### 自顶向下的代码实现
+
+代码来自：[https://github.com/damonare/Sorts](https://github.com/damonare/Sorts)，并做了适当的修改和注释：
+
+```js
+// 调用的主要方法
+function mergeSort (arr) {
+    let len = arr.length
+    // 递归结束的条件
+    if(len < 2) {
+        return arr
+    }
+    // 对数组进行拆分，拆为 left 和 right
+    let middle = Math.floor(len / 2),
+        left = arr.slice(0, middle),
+        right = arr.slice(middle)
+    // 递归调用，采用尾递归优化
+    return merge(mergeSort(left), mergeSort(right))
+}
+
+// merge方法用来对两个数组进行排序，并返回排好序的数组
+function merge (left, right) {
+    var result = []
+    // 对两个子数组进行排序
+    while (left.length && right.length) {
+        if (left[0] <= right[0]) {
+            result.push(left.shift())
+        } else {
+            result.push(right.shift())
+        }
+    }
+
+    // 由于两个子数组的元素个数不一定相等，所以在上一个while循环排序完成后，
+    // 要检查left和right中是否还有元素，如果有则推入结果数组中
+    while (left.length) {
+        result.push(left.shift())
+    }
+    while (right.length) {
+        result.push(right.shift())
+    }
+
+    return result
+}
+```

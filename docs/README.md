@@ -24,6 +24,7 @@
 #### CSS3
 ###### [CSS选择器整理](/note/css3/selector)
 ###### [transform](/note/css3/transform)
+###### [从矩阵与空间操作的关系理解CSS3的transform](/note/css3/matrix)
 ###### [BFC](/note/css3/bfc)
 
 #### Git
@@ -42,6 +43,9 @@
 ##### 安全
 ###### [CSP(内容安全策略)](/note/security/csp)
 
+#### Linux
+###### [Ubuntu使用知识积累](/note/linux/ubuntu-utils)
+
 #### 性能与兼容性
 ###### [H5 性能优化整理](/note/performance/h5-perf)
 ###### [基础性能知识](/note/performance/performance)
@@ -49,9 +53,6 @@
 ###### [重排和重绘的概念及触发条件查看这里](/note/performance/reflow-repaint)
 ###### [数据直出与服务端渲染的首屏优化](/note/performance/ssr)
 ###### [兼容性](/note/compatibility/compatibility)
-
-#### 数学
-###### [向量/矩阵](/note/math/matrix)
 
 #### 规范与概念
 ###### [js编码规范 .eslitrc.js](/note/specification/eslintrc)

@@ -121,11 +121,11 @@ BST.prototype.inOrder = function (node) {
     }
 }
 // 先序
-BST.prototype.perOrder = function (node) {
+BST.prototype.preOrder = function (node) {
     if (node) {
         console.log(node.data)
-        this.perOrder(node.left)
-        this.perOrder(node.right)
+        this.preOrder(node.left)
+        this.preOrder(node.right)
     }
 }
 // 后序
@@ -153,7 +153,7 @@ tree.insert(22)
 console.log('=====中序=====')
 tree.inOrder(tree.root)
 console.log('=====先序=====')
-tree.perOrder(tree.root)
+tree.preOrder(tree.root)
 console.log('=====后序=====')
 tree.postOrder(tree.root)
 ```

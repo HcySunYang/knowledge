@@ -76,6 +76,5 @@
 ##### 检索算法
 
 #### Vue和React
-###### [Vue 和 React 使用方式的对标](/note/vue-react/vue-vs-react)
 ##### Vue
 ##### React

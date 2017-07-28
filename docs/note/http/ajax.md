@@ -189,6 +189,42 @@ xhr.send()
 xhr.timeout = 1000  // 1秒后超时
 ```
 
+###### upload
+
+* 描述：`xhr.upload` 属性返回一个 `XMLHttpRequestUpload` 对象，用来表示上传的进度，该对象是不透明的，可以通过为其绑定事件来跟踪进度。
+* 示例：
+
+```js
+const xhr = new XMLHttpRequest()
+xhr.open('POST', url)
+xhr.onreadystatechange = () ={
+    // ...
+}
+xhr.upload.addEventListener('progress', event => {
+    // event.lengthComputable 文件是否可计算
+    if (event.lengthComputable) {
+        // 计算上传进度百分比
+        let percentage = Math.round(event.loaded / event.total * 100)
+    } else {
+        console.log('无法计算')
+    }
+})
+xhr.upload.addEventListener('load', () => {})
+xhr.upload.addEventListener('error', () => {})
+```
+
+能够在 `xhr.upload` 上监听的事件有：
+
+| 事件        | 描述           |
+| ------------- |:-------------:|
+| loadstart     | 开始上传 |
+| progress      | 传输中      |
+| abort | 终止操作      |
+| error | 失败      |
+| load | 成功      |
+| timeout | 超时      |
+| loadend | 完成（不论成功与否）      |
+
 ##### 方法
 
 ###### open(method, url[, async])

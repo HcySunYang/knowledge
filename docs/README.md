@@ -18,6 +18,12 @@
 ###### [DOM操作](/note/dom/dom)
 ###### [DOM事件](/note/dom/dom-event)
 
+##### 规范与概念
+###### [js编码规范 .eslitrc.js](/note/specification/eslintrc)
+###### [无障碍访问与ARIA](/note/specification/aria)
+###### [文档模式](/note/specification/dtd)
+###### [MIME type](/note/specification/mime)
+
 ##### 计算机原理
 ###### [计算机是怎样跑起来的](/note/computer-running)
 
@@ -56,11 +62,6 @@
 ###### [重排和重绘的概念及触发条件查看这里](/note/performance/reflow-repaint)
 ###### [数据直出与服务端渲染的首屏优化](/note/performance/ssr)
 ###### [兼容性](/note/compatibility/compatibility)
-
-#### 规范与概念
-###### [js编码规范 .eslitrc.js](/note/specification/eslintrc)
-###### [无障碍访问与ARIA](/note/specification/aria)
-###### [文档模式](/note/specification/dtd)
 
 #### 数据结构与算法
 ##### 数据结构

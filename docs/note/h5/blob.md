@@ -71,7 +71,9 @@ b.size  // 10
         var obj_url = window.URL.createObjectURL(this.files[0])
         var iframe = document.querySelector('viewer')
         iframe.setAttribute('src', obj_url)
-        window.URL.revokeObjectURL(obj_url)
+        iframe.onload = function () {
+            window.URL.revokeObjectURL(obj_url) 
+        }
     }, false)
     </script>
 </body>
@@ -83,7 +85,7 @@ b.size  // 10
 
 注意：
 
-以上代码运行在火狐(53.0.3)下可以，运行在Chrome(59.0.3071.115)下报错。
+以上代码在火狐(53.0.3)中可以在本地环境运行，在Chrome(59.0.3071.115)和Safari中必须要在服务器环境下，才能正常运行。
 
 值得关注的是，除此应用之外，由于 `File` API继承且基于 `Blob`，所以对于 `File` 的应用，也算是对 `Blob` 的应用。
 

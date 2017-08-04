@@ -68,6 +68,7 @@ b.size  // 10
     <script>
     var input = document.querySelector('#fileinput')
     input.addEventListener('change', function () {
+        // 其中 this.files[0] 为 File 的实例，但 File 继承 Blob
         var obj_url = window.URL.createObjectURL(this.files[0])
         var iframe = document.querySelector('viewer')
         iframe.setAttribute('src', obj_url)

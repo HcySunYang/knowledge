@@ -15,7 +15,7 @@ Blob的全称为 `binary large object` 即 二进制大对象，它是计算机�
 `Blob`是一个构造函数，使用方式如下：
 
 ```js
-new Blob(array, options)
+new Blob([array[, options]])
 ```
 
 两个参数都是可选的：

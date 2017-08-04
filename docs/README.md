@@ -35,6 +35,7 @@
 ###### [BFC](/note/css3/bfc)
 ##### H5
 ###### [Blob(binary large object)](/note/h5/blob)
+###### [File 和 FileList](/note/h5/file-filelist)
 
 #### Git
 ###### [config配置项](/note/git/config)

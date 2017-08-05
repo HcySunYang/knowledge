@@ -79,7 +79,3 @@
 ###### [基本排序算法](/note/algorithm/basic-sort)
 ###### [高级排序算法](/note/algorithm/advance-sort)
 ##### 检索算法
-
-#### Vue和React
-##### Vue
-##### React

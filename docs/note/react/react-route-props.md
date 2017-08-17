@@ -1,1 +1,0 @@
-## 传递props到react-route匹配的组件中的方式

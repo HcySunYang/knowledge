@@ -65,4 +65,10 @@ const Root = withRouter(connect(mapStateToProps, mapDispatchToProps)(App));
 
 其原理简单来讲，就是当你的路由变化的时候，组件将被强制 `re-render`，可以在这里看到解释：[https://github.com/ReactTraining/react-router/blob/master/packages/react-router/docs/guides/redux.md](https://github.com/ReactTraining/react-router/blob/master/packages/react-router/docs/guides/redux.md)
 
-#### 2、react-router 4 实现按需加载 (待续......)
+#### 2、react-router 4 实现按需加载
+
+在 `react-router` V4 之前，`react-router` 的思想是静态路由，类似于 Angular 和 Express中配置的路由，且自动支持异步组件的写法（使用 `genComponent`），但在 `react-router 4`，其思想由静态路由转变为动态路由，同时不再提供异步组件的写法，需要通过 `webpack` 的 `bundle-loader` 实现。
+
+具体的实现方法其官方文档已有介绍，地址：[https://reacttraining.com/react-router/web/guides/code-splitting](https://reacttraining.com/react-router/web/guides/code-splitting)。
+
+这里我要说的是，在使用 `bundle-loader` 异步加载组件的时候，你的 `webpack` 配置里一定要配置 `output.publicPath` 选项，否则异步加载的组件可能会 `404(Not Found)`。

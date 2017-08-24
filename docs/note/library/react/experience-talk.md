@@ -72,3 +72,56 @@ const Root = withRouter(connect(mapStateToProps, mapDispatchToProps)(App));
 具体的实现方法其官方文档已有介绍，地址：[https://reacttraining.com/react-router/web/guides/code-splitting](https://reacttraining.com/react-router/web/guides/code-splitting)。
 
 这里我要说的是，在使用 `bundle-loader` 异步加载组件的时候，你的 `webpack` 配置里一定要配置 `output.publicPath` 选项，否则异步加载的组件可能会 `404(Not Found)`。
+
+#### 3、react中阻止事件冒泡
+
+遇到过以下问题：
+
+首先在 `componentDidMount()` 方法中使用原生js在 `document` 对象上监听了一个 `click` 事件：
+
+```js
+componentDidMount () {
+  document.addEventListener('click', () => {
+    // ......
+  })
+}
+```
+
+然后在 `react` 的事件中阻止冒泡：
+
+```js
+
+handleClick (e) {
+  e.stopPropagation()
+}
+
+render () {
+  return (
+    <div onClick={this.handleClick.bind(this)}>click</div>
+  )
+}
+```
+
+发现，这样并不能成功阻止事件冒泡，事件依然冒泡到了 `document`。
+
+但是如果你采用 `react` 的事件绑定方式给 `document` 对象添加事件，却发现能够成功阻止，原因是：
+
+`react` 的合成事件其实现方式也是采用了事件委托，所以当你再任何事件函数中阻止事件冒泡时，除非 `react` 手动截获你阻止冒泡的行为后替你去阻止之外，别无它法，这就是为什么能够成功阻止 `react` 事件，而不能阻止原生绑定的事件的原因，解决办法是：
+
+```js
+
+handleClick (e) {
+  // 将这句
+  // e.stopPropagation()
+  // 替换成
+  e.nativeEvent.stopImmediatePropagation()
+}
+
+render () {
+  return (
+    <div onClick={this.handleClick.bind(this)}>click</div>
+  )
+}
+```
+
+关于 `stopImmediatePropagation` 的信息可以看这里：[stopImmediatePropagation](/note/dom/dom-event?id=event-stopimmediatepropagation)

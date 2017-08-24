@@ -124,4 +124,6 @@ render () {
 }
 ```
 
-关于 `stopImmediatePropagation` 的信息可以看这里：[stopImmediatePropagation](/note/dom/dom-event?id=event-stopimmediatepropagation)
+关于 `stopImmediatePropagation` 的信息可以看这里：[stopImmediatePropagation](/note/dom/dom-event?id=event-stopimmediatepropagation)。
+
+附上关于这个问题的参考链接：[ReactJS SyntheticEvent stopPropagation() only works with React events?](https://stackoverflow.com/questions/24415631/reactjs-syntheticevent-stoppropagation-only-works-with-react-events)

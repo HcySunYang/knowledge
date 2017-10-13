@@ -15,3 +15,26 @@
 `--squash` 选项用于压缩多个“无用”的 `commit` 为一个 `commit`，效果类似下图：
 
 <img src="../../asset/img/git-merge-squash.png" width="200" />
+
+#### fork 的仓库与远程仓库同步
+
+以 `Github` 为例
+
+* 1、设置 `upstream` 为原仓库地址
+
+```sh
+git remote add upstream https://github.com/some_project/some_project.git
+```
+
+* 2、获取原仓库的更新到本地
+
+```sh
+git fetch upstream
+```
+
+* 3、合并更新，以 `master` 分支为例
+
+```
+git checkout master
+git merge upstream/master
+```

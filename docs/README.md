@@ -87,3 +87,7 @@
 ###### [React技术栈相关经验总结](/note/library/react/experience-talk)
 ##### Webpack
 ###### [webpack插件收集](/note/library/webpack/plugins)
+
+#### 英语
+##### 单词
+###### [7500核心词汇（整理自《麦克米伦高阶英汉双解词典》）](/note/english/7500-macmillan)

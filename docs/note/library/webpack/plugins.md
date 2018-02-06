@@ -8,6 +8,12 @@
 
 > Happiness in the form of faster webpack build times.
 
+### 生产构建
+
+#### [uglifyjs-webpack-plugin](https://github.com/webpack-contrib/uglifyjs-webpack-plugin)
+
+> UglifyJS Plugin
+
 ### 开发调试
 
 #### [friendly-errors-webpack-plugin](https://github.com/geowarin/friendly-errors-webpack-plugin)

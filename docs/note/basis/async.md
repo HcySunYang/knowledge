@@ -195,3 +195,188 @@ run(getData)
 `async/await` 方法相比于 `Generator` 处理异步的方式，有很多相似的地方，只不过 `async/await` 在语义化方面更加明显，同时 `async/await`
 不需要我们手写执行器，其内部已经帮我们封装好了，这就是为什么说 `async/await` 是 `Generator` 函数处理异步的语法糖了。
 
+#### Promise
+
+###### Promise.prototype.then
+
+* 作用：为 `Promise` 实例添加状态改变的回调函数
+
+* 参数：
+
+第一个参数：状态从 `pending` -> `fulfilled` 时的回调函数
+
+第二个参数：状态从 `pending` -> `rejected` 时的回调函数
+
+* 返回值：新的 `Promise` 实例（**注意不是原来的 `Promise` 实例**）
+
+* 特点
+
+由于 `then` 方法返回一个新的 `Promise` 实例，所以 `then` 方法是可以链式调用的，链式调用的 `then` 方法有两个特点：
+
+第一：后一个 `then` 方法的回调函数的参数是前一个 `then` 方法的返回值
+
+第二：如果前一个 `then` 方法的返回值是一个 `Promise` 实例，那么后一个 `then` 方法的回调函数会等待该 `Promise` 实例的状态改变后再执行
+
+###### Promise.prototype.catch
+
+* 说明：`Promise.prototype.catch` 方法是 `.then(null, rejection)` 的别名
+
+* 特点
+
+`Promise` 有一点特点，如下代码：
+
+```js
+const p1 = new Promise(function (resolve, reject) {
+    setTimeout(() => {
+        reject('err')
+    }, 1000)
+})
+
+p1.then(
+    res => console.log('s1'),
+    err => console.log('e1')
+).then(
+    res => console.log('s2')
+).catch(
+    err => console.log('e2')
+)
+```
+
+上面代码的输出结果是：`e1`、`s2`，可以发现，在第一个 `then` 方法执行的错误处理函数中捕获到了错误，所以输出了 `e1`，那么这个错误已经被捕获到了，也就不需要 `catch` 再次捕获了，所以没有输出 `e2`，这是正常的，但问题是竟然输出了 `s2`。。。。
+
+为了避免上面的问题，你应该总是使用 `catch` 进行错误处理，而尽量避免在 `then` 方法中添加错误处理函数，上面的代码修改后如下：
+
+```js
+p1.then(
+    res => console.log('s1')
+).then(
+    res => console.log('s2')
+).catch(
+    err => console.log('e2')
+)
+```
+
+这样，就只会输出 `e2` 了。
+
+###### Promise.prototype.finally
+
+有的时候，我们希望无论 `Promise` 实例的结果最终变成 `fulfilled` 还是 `rejected`，我们都要执行某个动作，我们可以这样做：
+
+```js
+p1.then(
+    res => console.log('s1')
+).catch(
+    err => console.log('e1')
+).then(
+    () => console.log('end'),
+    () => console.log('end')
+)
+```
+
+在最后使用一个 `then` 方法作为结尾，并且成功和失败的回调函数做了相同的事情，这样就能保证无论 `Promise` 实例的状态如何变化，最后总是执行某个动作，但问题是我们写了两端相同的代码，并且 `then` 方法也不够语义化，为了解决这个问题，我们就可以采用 `.finally`：
+
+```js
+p1.then(
+    res => console.log('s1')
+).catch(
+    err => console.log('e1')
+).finally(
+    () => console.log('end')
+)
+```
+
+很容易能够发现，`.finally` 只不过是一个成功与失败的回调函数相同的 `.then` 而已。
+
+###### Promise.all
+
+* 作用：将多个 `Promise` 实例包装成一个 `Promise` 实例
+
+* 参数：一个参数，该参数应该具有 `Iterator` 接口，通常是一个数组，数组的每个元素都是一个 `Promise` 实例，如果不是那么会自动调用 `Promise.resolve` 方法将其转为 `Promise` 实例。
+
+* 特点：
+
+只有当所有 `Promise` 实例的状态都变为 `fulfilled`，那么 `Promise.all` 生成的实例才会 `fulfilled`。
+
+只要有一个 `Promise` 实例的状态变成 `rejected`，那么 `Promise.all` 生成的实例就会 `rejected`。
+
+* 例子：
+
+```js
+const p = Promise.all([promise1, promise2, promise3])
+
+p.then(
+    (res) => {
+        // res 是结果数组
+    }
+)
+```
+
+###### Promise.race
+
+* 作用：与 `Promise.all` 类似，也是将多个 `Promise` 实例包装成一个 `Promise` 实例。
+
+* 参数：与 `Promise.all` 相同
+
+* 特点：
+
+`Promise.race` 方法生成的 `Promise` 实例的状态取决于其所包装的所有 `Promise` 实例中状态最先改变的那个 `Promise` 实例的状态。
+
+* 例子：请求超时
+
+```js
+const p = Promise.race([
+    getData('/path/data'),
+    new Promise((resolve, reject) => {
+        setTimeout(() => { reject('timeout') }, 10000)
+    })
+])
+
+p.then(res => console.log(res))
+p.catch(msg => console.log(msg))
+```
+
+###### Promise.resolve
+
+* 作用：将现有对象(或者原始值)转为 `Promise` 对象。
+
+* 参数：参数可以是任意类型，不同的参数其行为不同
+    * 如果参数是一个 `Promise` 对象，则原封不动返回
+    * 如果参数是一个 `thenable` 对象(即带有 `then` 方法的对象)，则 `Promise.resolve` 会将其转为 `Promise` 对象并立即执行 `then` 方法
+    * 如果参数是一个普通对象或原始值，则 `Promise.resolve` 会将其包装成 `Promise` 对象，状态为 `fulfilled`
+    * 不带参数，则直接返回一个状态为 `fulfilled` 的 `Promise` 对象
+
+###### Promise.reject
+
+* 作用：返回一个状态为 `rejected` 的 `Promise` 对象
+
+* 参数：任意参数，该参数将作为失败的理由：
+
+```js
+Promise.reject('err')
+
+// 等价于
+new Promise(function (resolve, reject) {
+    reject('err')
+})
+```
+
+###### 统一使用 Promise
+
+无论对于同步操作，还是异步操作，我们都可以将其作为异步操作统一处理，这样就能统一使用 `Promise` 的API了，假设函数 `fn` 是一个同步函数：
+
+```js
+function fn () {
+    console.log('fn 执行了')
+}
+```
+
+将其包装为异步函数：
+
+```js
+const p = new Promise((resolve, reject) => {
+    resolve(fn())
+})
+```
+
+或者点击这里：[https://github.com/tc39/proposal-promise-try](https://github.com/tc39/proposal-promise-try)
+

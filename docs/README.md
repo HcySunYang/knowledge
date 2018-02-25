@@ -38,11 +38,14 @@
 ###### [File 和 FileList](/note/h5/file-filelist)
 
 #### Git
+##### Git
 ###### [config配置项](/note/git/config)
 ###### [git常用命令及技巧](/note/git/commonly-used)
 ###### [Git版本控制管理](/note/git)
+##### Linux
+###### [Ubuntu使用知识积累](/note/linux/ubuntu-utils)
 
-#### 网络与安全
+#### 网络/安全
 ##### 网络
 ###### [get和post请求的区别](/note/http/get-post)
 ###### [从输入URL到页面加载完成的过程中都发生了什么事情？](/note/http/url-render)
@@ -53,10 +56,7 @@
 ##### 安全
 ###### [CSP(内容安全策略)](/note/security/csp)
 
-#### Linux
-###### [Ubuntu使用知识积累](/note/linux/ubuntu-utils)
-
-#### 性能与兼容性
+#### 性能/兼容性
 ###### [H5 性能优化整理](/note/performance/h5-perf)
 ###### [基础性能知识](/note/performance/performance)
 ###### [浏览器渲染页面的过程](/note/performance/render-page)
@@ -64,7 +64,7 @@
 ###### [数据直出与服务端渲染的首屏优化](/note/performance/ssr)
 ###### [兼容性](/note/compatibility/compatibility)
 
-#### 数据结构与算法
+#### 数据结构/算法
 ##### 数据结构
 ###### [数据结构以及相关术语的概念](/note/algorithm/data-structure)
 ###### [栈](/note/algorithm/stack)

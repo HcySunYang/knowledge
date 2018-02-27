@@ -39,6 +39,10 @@ git checkout master
 git merge upstream/master
 ```
 
+#### git commit --amend
+
+只修改最后一次提交历史
+
 #### 常用团队合作操作规范
 
 ![](http://7xlolm.com1.z0.glb.clouddn.com/2018-02-20-113110.jpg)

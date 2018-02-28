@@ -39,9 +39,15 @@ git checkout master
 git merge upstream/master
 ```
 
-#### git commit --amend
+#### 修改提交历史消息
 
-只修改最后一次提交历史
+* 修改上一次提交的历史消息
+
+```sh
+git commit --amend -m "New commit message"
+```
+
+注意，在执行上面的命令修改提交历史之前，要保证本地没有暂存的修改，否则改修改也会被提交。
 
 #### 常用团队合作操作规范
 

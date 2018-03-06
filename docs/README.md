@@ -83,6 +83,7 @@
 #### 框架
 ##### Vue
 ###### [博客 Vue 文章汇总](/note/library/vue/all-posts)
+###### [Vue 奇技淫巧](/note/library/vue/skill)
 ##### React
 ###### [React技术栈相关经验总结](/note/library/react/experience-talk)
 ##### Webpack

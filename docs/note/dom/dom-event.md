@@ -41,14 +41,24 @@ document.getElementById('box').onclick = function (){...}
 
 #### 标准方法
 
-###### el.addEventListener(eventName, handle, useCapture)
+###### el.addEventListener(eventName, handle, useCapture | options)
 
 * 描述：给DOM元素添加指定的事件处理函数
 
 * 参数：
     * `{String} eventName` 事件名称
     * `{Function} handle` 事件函数
-    * `{Boolean} useCapture` 是否在事件捕获阶段触发事件，true 代表捕获阶段触发，false 代表在冒泡阶段触发
+    * 第三个参数可以是一个选项对象或者是一个 `Boolean` 值
+        * `{Boolean} useCapture` 是否在事件捕获阶段触发事件，`true` 代表捕获阶段触发，`false` 代表在冒泡阶段触发
+        * `{Object} options` 选项对象解释如下：
+
+        ```js
+        {
+            capture: 一个 boolean 值，同 useCapture
+            once: 一个 boolean 值，如果为 true 代表事件监听器只被执行一次
+            passive: 一个 boolean，如果为 true 代表该事件不会调用 preventDefault()
+        }
+        ```
 
 ###### el.removeEventListener(eventName, handle)
 

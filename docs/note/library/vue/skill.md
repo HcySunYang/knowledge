@@ -27,7 +27,7 @@ this.$xxx = this.$options.xxx
 但是对于子组件，访问他们自身的 `this.$options.xxx` 是访问不到从根组件注入的选项的，但是可以通过访问之前在父组件实例上定义的属性简介访问：
 
 ```js
-this.$xxx && this.$parent.xxx
+this.$parent && this.$parent.xxx
 ```
 
 这样，就使得根组件以及其所有后代组件，都会在他们的实例对象上添加对选项的引用，使得它们全部能够访问由根组件注入进来的选项。

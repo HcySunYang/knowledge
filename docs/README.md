@@ -88,6 +88,8 @@
 ###### [React技术栈相关经验总结](/note/library/react/experience-talk)
 ##### Webpack
 ###### [webpack插件收集](/note/library/webpack/plugins)
+###### [webpack4.0+ 特性总结](/note/library/webpack/webpack4)
+###### [webpack优化总结](/note/library/webpack/optimization)
 
 #### 英语
 ##### 单词

@@ -37,3 +37,9 @@
 #### [jarvis](https://github.com/zouhir/jarvis)
 
 > A very intelligent browser based Webpack dashboard
+
+#### 工具集
+
+[webpack-merge](https://github.com/survivejs/webpack-merge)
+
+> Merge designed for Webpack

@@ -11,8 +11,8 @@
 ###### [数组](/note/basis/array)
 ###### [字符串](/note/basis/string)
 ###### [正则表达式](/note/basis/regexp)
-###### [cookie和storage](/note/basis/cookie-storage)
 ###### [异步处理](/note/basis/async)
+###### [Object.*](/note/basis/object)
 
 ##### DOM
 ###### [DOM操作](/note/dom/dom)
@@ -52,6 +52,7 @@
 ###### [ajax及其优缺点](/note/http/ajax)
 ###### [跨域及跨域的方案](/note/http/cross-domain)
 ###### [强缓存与协商缓存](/note/http/cache)
+###### [cookie和storage](/note/basis/cookie-storage)
 
 ##### 安全
 ###### [CSP(内容安全策略)](/note/security/csp)

@@ -122,7 +122,7 @@ if(Object.prototype.toString.call(obj) === '[object Array]'){
 * 返回值：排序后的数组
 * 是否改变原数组：是	
 
-####操作方法
+#### 操作方法
 
 ###### concat()
 * 描述：基于当前数组的所有项创建一个新数组

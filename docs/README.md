@@ -23,6 +23,7 @@
 ###### [无障碍访问与ARIA](/note/specification/aria)
 ###### [文档模式](/note/specification/dtd)
 ###### [MIME type](/note/specification/mime)
+###### [语义版本控制](/note/specification/semantic-version)
 
 ##### 计算机原理
 ###### [计算机是怎样跑起来的](/note/computer-running)

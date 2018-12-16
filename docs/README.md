@@ -25,8 +25,8 @@
 ###### [MIME type](/note/specification/mime)
 ###### [语义版本控制](/note/specification/semantic-version)
 
-##### 计算机原理
-###### [计算机是怎样跑起来的](/note/computer-running)
+##### 计算机基础
+###### [概念汇总](/note/computer/concept)
 
 #### H5/CSS
 ##### CSS

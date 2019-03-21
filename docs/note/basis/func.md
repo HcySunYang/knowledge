@@ -136,8 +136,10 @@ function (a = 2, b = 3){
 
 ```js
 class Super {
-    if (new.target === Super) {
-        throw new Error('不能单独实例化')
+    constructor () {
+        if (new.target === Super) {
+            throw new Error('不能单独实例化')
+        }
     }
 }
 class Sub extends Super {

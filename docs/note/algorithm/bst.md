@@ -226,3 +226,85 @@ BST.prototype.find = function (data) {
     return null
 }
 ```
+
+##### 二叉树左视图  
+
+左视图即为树在左方向上的投影，也可以理解从左向右观察，从最上面的图看，树的左视图为`23,17,3`  
+
+先将二叉树转换成二维数组的数据结构，整个为一个大的数组，子数组内为每一层的节点，顺序为树的从左到右对应数组的从前到后  
+
+代码如下：  
+
+```js
+BST.prototype.floors = function () {
+    let floors = []
+
+    function currentFloor(prevFloor) {
+      const currentFloor = []
+      prevFloor.forEach(item => {
+        if (item.left) {
+          currentFloor.push(item.left)
+        }
+        if (item.right) {
+          currentFloor.push(item.right)
+        }
+      })
+
+      return currentFloor
+    }
+
+    let prevF = [this.root]
+    while (prevF.length) {
+      floors.push(prevF)
+      prevF = currentFloor(prevF)
+    }
+
+    return floors
+}
+```
+
+这样左视图就很好获取了，只需要遍历整个二维数组的最外层，拿到每一项数组的第一项  
+
+代码如下：  
+
+```js
+BST.prototype.leftSideView = function () {
+    const floors = this.floors(),
+        leftView = []
+
+    floors.forEach(item => {
+        leftView.push(item[0].data)
+    })
+    return leftView
+}
+```
+
+##### 二叉树右视图  
+
+右视图即为从左视图的反方向观察，获取即为遍历整个二维数组的最外层，拿到每一项数组的最后项  
+
+代码如下：  
+
+```js
+BST.prototype.rightSideView = function () {
+    const floors = this.floors(),
+      rightView = []
+
+    floors.forEach(item => {
+      rightView.push(item[item.length - 1].data)
+    })
+    return rightView
+}
+```
+
+##### 二叉树的层数  
+
+即为整个二维数组最外层的长度  
+
+代码如下：  
+
+```js
+BST.prototype.floorNumber = function () {
+    return this.floors().length
+}
+```  

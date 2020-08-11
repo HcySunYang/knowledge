@@ -66,7 +66,7 @@ file instanceof Blob    // true
 
 * `{Number} lastModified` 文件的最后修改时间，毫秒数
 
-###### lastModified
+###### lastModifiedDate
 
 * `{Date} lastModifiedDate` 文件的最后修改日期
 

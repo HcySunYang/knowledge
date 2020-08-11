@@ -134,7 +134,7 @@ attachEvent/detachEvent 与 addEventListener/removeEventListener 的区别：
 
 ###### event.eventPhase
 * 读写特性：只读
-* 描述：调用该事件处理函数的阶段 `1` 表示捕获阶段 `2` 表示处于目标阶段 `3` 表示冒泡阶段
+* 描述：调用该事件处理函数的阶段 `0` 表示没有事件正在被处理 `1` 表示捕获阶段 `2` 表示处于目标阶段 `3` 表示冒泡阶段
 
 ###### event.trusted
 * 读写特性：只读

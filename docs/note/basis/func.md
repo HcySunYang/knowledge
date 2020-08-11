@@ -33,12 +33,12 @@ var fnName = () => {
 
 ## 二、函数的内部属性
 
-#### anguments
+#### arguments
 
 * 类型：类数组对象，包含着传入函数的所有参数，和length属性
 * 属性：
-    * anguments.length	// 实际传入函数参数的个数
-    * anguments.callee【严格模式报错】	// 指向拥有这个anguments对象的函数，即函数本身
+    * arguments.length	// 实际传入函数参数的个数
+    * arguments.callee【严格模式报错】	// 指向拥有这个anguments对象的函数，即函数本身
 
 #### this
 
@@ -54,9 +54,9 @@ var fnName = () => {
 * 描述：保存着调用当前函数的函数的引用，如果在全局作用域调用当前函数，则返回 `null`
 
 ###### fnName.length
-* 描述：表示函数希望接收的命名参数的个数
+* 描述：表示函数希望接收的命名参数的个数，只读
 <p class="tip">
-注意：anguments.length 是实际传入函数参数的个数，而 fnName.length 是函数希望接收命名参数的个数，【ES6函数默认值对length的影响】：指定默认值以及在指定默认值的参数之后的所有参数，都不会计算到length中
+注意：anguments.length 是实际传入函数参数的个数，而 fnName.length 是函数希望接收命名参数的个数，【ES6函数默认值对length的影响】：指定默认值以及在指定默认值的参数之后的所有参数(包括默认值)，都不会计算到length中
 </p>
 
 ###### fnName.prototype

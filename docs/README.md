@@ -42,7 +42,7 @@
 ##### Git
 ###### [config配置项](/note/git/config)
 ###### [git常用命令及技巧](/note/git/commonly-used)
-###### [Git版本控制管理](/note/git)
+<!-- ###### [Git版本控制管理](/note/git) -->
 ##### Linux
 ###### [Ubuntu使用知识积累](/note/linux/ubuntu-utils)
 
